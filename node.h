@@ -1,5 +1,11 @@
-#ifndef NODE_H
-#define NODE_H
+//
+// Created by sebastian on 8/28/18.
+//
+
+#ifndef DOUBLE_LINKED_LIST_DEVELOP_NODE_H
+#define DOUBLE_LINKED_LIST_DEVELOP_NODE_H
+
+
 
 #include <iostream>
 
@@ -11,8 +17,11 @@ struct Node {
     Node* next;
     Node* prev;
 
-    void killSelf();
-    void print_next();
+    void killSelf(){
+
+    };
+    void print_next(){
+    };
 };
 
-#endif
+#endif //DOUBLE_LINKED_LIST_DEVELOP_NODE_H
