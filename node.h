@@ -1,27 +1,29 @@
 //
-// Created by sebastian on 8/28/18.
+// Created by sebastian on 9/6/18.
 //
 
-#ifndef DOUBLE_LINKED_LIST_DEVELOP_NODE_H
-#define DOUBLE_LINKED_LIST_DEVELOP_NODE_H
-
-
-
-#include <iostream>
-
-using namespace std;
+#ifndef TYPE_TRAITS_DEVELOP_NODE_H
+#define TYPE_TRAITS_DEVELOP_NODE_H
 
 template <typename T>
 struct Node {
     T data;
-    Node* next;
-    Node* prev;
+    Node<T>* next;
+    Node<T>* prev;
 
-    void killSelf(){
+    Node(T data) : data(data) {
+        next = prev = nullptr;
+    };
 
-    };
-    void print_next(){
-    };
+    void killSelf();
 };
 
-#endif //DOUBLE_LINKED_LIST_DEVELOP_NODE_H
+template <typename T>
+void Node<T>::killSelf() {
+    if (next) {
+        next->killSelf();
+    }
+
+    delete this;
+}
+#endif //TYPE_TRAITS_DEVELOP_NODE_H
