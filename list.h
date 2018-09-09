@@ -41,7 +41,7 @@ public:
 
     T front(){
         if(start== nullptr){
-            cout << "No hay datos";
+            cout << "No hay datos"; // Da warning porque no lo controlas con un throw
         }
         else{
             return start->data;
@@ -50,7 +50,7 @@ public:
 
     T back(){
         if(start== nullptr){
-            cout << "No hay datos";
+            cout << "No hay datos"; // Da warning porque no lo controlas con un throw
         }
         else{
             return start->prev->data;
@@ -125,10 +125,10 @@ public:
     T get(int position){
         if(position>=nodes)
         {
-            cout << "Posicion no existe";
+            cout << "Posicion no existe"; // En una lista circular si existe
         }
         else{
-            Iterator<int> it= begin();
+            Iterator<int> it= begin(); // Sería mejor no usar el iterador
             for (int i=0; i<position; i++){
                 ++it;
             }
@@ -167,10 +167,10 @@ public:
         }
         else {
             auto n = start;
-            Iterator<int> it= begin();
+            Iterator<int> it= begin(); // Sería mejor no usar un iterador aquí
             Iterator<int> it2= end();
 
-            while(it!=it2){
+            while(it!=it2){ // Te va a faltar borrar el último elemento
                 ++it;
                 n=n->next;
                 start->next= nullptr;

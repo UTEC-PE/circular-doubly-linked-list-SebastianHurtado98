@@ -24,16 +24,16 @@ public:
     };
 
     Iterator<T> operator=(Iterator<T> node){
-        current= node.current;
+        current= node.current; // Falta retornar el iterador, da warning
     };
     bool operator!=(Iterator<T> cmp){
         return current!=cmp.current;
     };
     Iterator<T> operator++(){
-        current= current->next;
+        current= current->next; // falta retornar el iterador, da warning
     };
     Iterator<T> operator--(){
-        current= current->prev;
+        current= current->prev; // Fala retornar el iterador, da warning
     };
     T operator*(){
         return current->data;
